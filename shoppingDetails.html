@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/headW&&footerW.css">
+    <link rel="stylesheet" href="./css/shoppingDetails.css">
+</head>
+
+<body>
+    <header>
+        <div class="contener">
+            <iframe id="iframe_id" src="./head/headShopping.html" frameborder="0"
+                class="header-content contener"></iframe>
+            <ul class="clkNav">
+                <li>首页</li>
+                <li>酷玩</li>
+                <li>导购</li>
+                <li>试用</li>
+                <li>报告</li>
+            </ul><div class="clkLogin"></div>
+        </div>
+    </header>
+    <div id="app">
+        <div class="contener">
+            <p>首页 > 导航 > 最新 2016，这8支钢笔够你装逼一整年</p>
+            <div>
+                <div class="left">
+                    <div class="title">
+                        <h1>2016，这8支钢笔够你装逼一整年</h4>
+                            <div>
+                                <p>苏苏</p><span>2016-01-25</span>
+                            </div>
+                    </div class="title">
+                    <div class="content" id="box">
+                        <div v-for='itm in dat'>
+                            <h2 v-if='itm.font_title!=undefined' class="font_title">{{itm.font_title}}</h2>
+                            <p v-for='it in itm.content' v-html='it'>{{'${it}'}}</p>
+                            <h2 v-if="itm.chart_title!=undefined" class="chart_title">{{itm.chart_title}}</h2>
+                            <p v-if="itm.author!=undefined" class="author">{{itm.author}}</p>
+                            <img :src="itm.url">
+                            <p v-if="itm.endtext!=undefined">{{itm.endtext}}</p>
+                        </div>
+                        <div class="end">
+                            <p><a href="javascript:void(0);">上一篇：到底有没有完美的iPhone手机配件，答案都在这里</a></a></p>
+                            <p><a href="javascript:void(0);">下一篇：他用12年找一把完美 剃须刀，给你2万字终极购买指南</a></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div><img src="./img/img/xinRedo.png" alt="">
+                        <p>喜欢15</p>
+                    </div>
+                    <div><img src="./img/img/share_yj1.png" alt="">
+                        <p>分享</p>
+                        <div id="share">
+                            <div class="bshare-custom icon-medium"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到朋友网"
+                                    class="bshare-qqxiaoyou"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="更多平台"
+                                    class="bshare-more bshare-more-icon more-style-addthis"></a><span
+                                    class="BSHARE_COUNT bshare-share-count" style="display: none;float: none;">0</span></div>
+                            <script type="text/javascript" charset="utf-8"
+                                src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="contener">
+            <iframe src="footer.html" frameborder="0" class="footer-content contener"></iframe>
+            <div class="clkgratis"></div>
+        </div>
+    </footer>
+    
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/publicMethods.js"></script>
+<script src="./js/shoppingDetails.js"></script>
+
+</html>

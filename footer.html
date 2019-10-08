@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/head&&footer.css">
+</head>
+
+<body>
+    <footer>
+        <div class="contener">
+            <div class="help">
+                <div class="left"><img src="./img/code.png" alt="logo" width="160" height="160">
+                    <div>
+                        <img src="./img/icon.png" alt="icon">
+                        <p>全球酷玩试用导购平台酷·新奇·好玩·品质
+                        </p>
+                        <p>微信添加“JguoJguo”获取我们的服务。</p>
+                    </div>
+                </div>
+                <div class="right" id="ft-content">
+                    <div v-for="item,index in footDa">
+                        <h4>{{item.title}}</h4>
+                        <ul>
+                            <li v-for="it in item.arr"><a href="javascript:void(0);">{{it}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="Version">©2016 极果版权所有</p>
+        </div>
+    </footer>
+</body>
+<script src="./js/vue.js"></script>
+<script src="./js/head&&footer.js"></script>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/headW&&footerW.css">
+    <link rel="stylesheet" href="./css/coldplay.css">
+</head>
+
+<body>
+    <div id="box">
+        <header>
+            <div class="contener">
+                <iframe id="iframe_id" src="./head/headColdplay.html" frameborder="0"
+                    class="header-content contener"></iframe>
+                <ul class="clkNav">
+                    <li>首页</li>
+                    <li>酷玩</li>
+                    <li>导购</li>
+                    <li>试用</li>
+                    <li>报告</li>
+                </ul>
+                <div class="clkLogin loginret">登录</div>
+            </div>
+        </header>
+        <div id="app">
+            <div class="contener">
+                <div class="top">
+                    <h1>发现酷玩</h1>
+                    <ul class="nav">
+                        <li v-for='val,index in dat'>
+                            <router-link v-if='index==0' class="active" :to="{path:'/'+val.name}">{{val.title}}
+                            </router-link>
+                            <router-link v-else :to="{path:'/'+val.name}">{{val.title}}</router-link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="contener">
+                    <router-view></router-view>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="contener">
+                <iframe src="footer.html" frameborder="0" class="footer-content contener"></iframe>
+                <div class="clkgratis"></div>
+            </div>
+        </footer>
+    </div>
+    <template id="showCnt">
+        <div id="mostNew">
+            <div v-for='itm in data'>
+                <div class="mntopimg"><img :src="itm.url" alt=""></div>
+                <p class="title">{{itm.title}}</p>
+                <p class="content">{{itm.content}}</p>
+                <div class="priceFollow"><span>{{itm.price}}</span>
+                    <div><span>{{itm.follow}}</span><span>{{itm.message}}</span></div>
+                </div>
+                <div class="coldplayAnimt"></div>
+            </div>
+            <div v-for='it,index in data' v-if="index<4" hidden>
+                <div class="mntopimg"><img :src="it.url" alt=""></div>
+                <p class="title">{{it.title}}</p>
+                <p class="content">{{it.content}}</p>
+                <div class="priceFollow"><span>{{it.price}}</span>
+                    <div><span>{{it.follow}}</span><span>{{it.message}}</span></div>
+                </div>
+                <div class="coldplayAnimt"></div>
+            </div>
+            <div class="more"><a href="javascript:void(0);">点击加载更多</a></div>
+        </div>
+    </template>
+    <template id="categoryCnt">
+        <div id="category">
+            <div v-for='value in dat'>
+                <h5><i></i>{{value.title}}</h5>
+                <ul class="chartFont">
+                    <li v-for='val in value.chartFont'>
+                        <img :src="val.url" alt="">
+                        <p>{{val.content}}</p>
+                    </li>
+                </ul>
+                <ul class="fnt">
+                    <li v-for='item in value.da'>
+                        <p v-for='it in item'>{{it}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="./js/vue-router.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/publicMethods.js"></script>
+<script src="./js/coldplay.js"></script>
+
+
+</html>

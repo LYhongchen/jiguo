@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/headW&&footerW.css">
+    <link rel="stylesheet" href="./css/FreeTrialDetails.css">
+</head>
+
+<body>
+    <div id="box">
+        <header>
+            <div class="contener">
+                <iframe id="iframe_id" src="./head/headFreeTrial.html" frameborder="0"
+                    class="header-content contener"></iframe>
+                <ul class="clkNav">
+                    <li>首页</li>
+                    <li>酷玩</li>
+                    <li>导购</li>
+                    <li>试用</li>
+                    <li>报告</li>
+                </ul>
+                <div class="clkLogin"></div>
+            </div>
+        </header>
+        <div id="app">
+            <div class="top">
+                <div class="contener">
+                    <div class="banner_bt">
+                        <h1>幻想小贝HiFi2.1音响</h1>
+                        <div>
+                            <p>20台</p>
+                            <p>￥599</p>
+                            <p>126人申请</p>
+                        </div>
+                        <p class="text">申请事件剩余：13天5小时37分钟</p>
+                        <button>立即申请</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="procedure">
+                    <div class="contener">
+                        <div class="left"><i></i><span>试用流程</span></div>
+                        <div class="right">
+                            <div v-for="itm in dat.procedure">
+                                <img :src="itm.url" alt="">
+                                <p>{{itm.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="introductionPass">
+                    <div class="contener">
+                        <div class="introduction">
+                            <div v-for='itm in dat.introduce'>
+                                <h1><span></span>{{itm.category}}</h1>
+                                <p v-if='itm.describe!=undefined' class="describe">{{itm.describe}}</p>
+                                <p v-if='itm.cuation!=undefined' class="cuation">{{itm.cuation}}</p>
+                                <div v-if='itm.redtitlecont!=undefined' class="titlered" v-for='it in itm.redtitlecont'>
+                                    <h2>{{it.title}}</h2>
+                                    <p v-for='val in it.content'>{{val}}</p>
+                                    <img v-if='it.url!=undefined' :src="it.url" alt="">
+                                    <div class="deputyContent">
+                                        <p v-if='it.deputyContent!=undefined' v-for='vae,index in it.deputyContent'>
+                                            <strong>{{index+1}}.{{vae.deputytitle}}：</strong>{{vae.deputycontent}}</p>
+                                    </div>
+                                </div>
+                                <div v-if='itm.bluetitlecont!=undefined' class="titleblue"
+                                    v-for="im in itm.bluetitlecont">
+                                    <h2>{{im.title}}</h2>
+                                    <p>{{im.content}}</p>
+                                    <img v-if='im.url!=undefined' :src="im.url" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pass">
+                            <ul>
+                                <li>
+                                    <h1><span></span>购买通道</h1>
+                                    <p>￥ 499</p>
+                                    <button>点击购买</button>
+                                    <p>来自官网</p>
+                                </li>
+                                <li>
+                                    <h1><span></span>吉果体验师</h1>
+                                    <img src="./img/tiyanImg.jpg" alt="">
+                                    <h2>福利</h2>
+                                    <p>第一时间体验新品，大众试用优先通过，还有定向邀请试用，新品玩到手软</p>
+                                    <h2>要求</h2>
+                                    <p>是某个领域的大神级玩家，在社交网络或圈子里有大影响力，善写作会拍摄。</p>
+                                    <h2>申请</h2>
+                                    <p>1. 关注极果公众号：jguojguo
+                                        <br />（或扫描下方二维码）
+                                        <br /> 2. 在公众号内回复：体验师
+                                        关注我们</p>
+                                </li>
+                                <li>
+                                    <h1><span></span>关注我们</h1>
+                                    <img src="./img/myCode.jpg" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotProbation">
+                    <div class="contener">
+                        <div class="head">
+                            <h1>热门试用</h1>
+                            <p><a href="javascript:void(0);">查看更多</a></p>
+                        </div>
+                        <div id="mostNew">
+                            <div v-for='itm in dat.hotprobation'>
+                                <div class="mntopimg"><img :src="itm.url" alt=""></div>
+                                <h2 class="title">{{itm.title}}</h2>
+                                <div class="numPlatform"><a href="javascript:void(0);"
+                                        :class="itm.color">{{itm.num}}</a><a href="javascript:void(0);"
+                                        :class="itm.color">{{itm.platform}}台</a></div>
+                                <p class="apply"><span class="red">{{itm.apply}}</span>申请</p>
+                                <p :class="itm.color">{{itm.SurplusTime}}</p>
+                                <div :class='itm.statusColor+" icon"'>{{itm.status}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="contener">
+                <iframe src="footer.html" frameborder="0" class="footer-content contener"></iframe>
+                <div class="clkgratis"></div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/publicMethods.js"></script>
+<script src="./js/FreeTrialDetails.js"></script>
+
+</html>

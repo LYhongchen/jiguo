@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>极果登陆页面</title>
+    <link rel="stylesheet" href="css/gratis&&login.css">
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+
+<body>
+
+    <body>
+        <div id="box">
+            <header>
+                <div class="contener">
+                    <div class="left">
+                        <div class="logo"><img src="./img/logonew.png" alt="logo"></div>
+                        <ul class="t_list">
+                            <li>首页</li>
+                            <li>酷玩</li>
+                            <li>导购</li>
+                            <li>试用</li>
+                            <li>报告</li>
+                        </ul>
+                    </div>
+                    <div class="right"><img src="./img/img/search.png" alt="search"><a href="javascript:void(0);">注册</a>
+                    </div>
+                </div>
+            </header>
+            <div id="app">
+                <div class="contener">
+                    <!--注册极果账号-->
+                    <div id="login">
+                        <h1>注册极果</h1>
+                        <ul>
+                            <li><input id="mobile" type="text" placeholder="请输入登陆的手机号" onblur="checkMobile()">
+                                <div id="mobile_prompt"></div>
+                            </li>
+                            <li><input type="text" placeholder="请输入图片校验码码" style="width: 245px"><canvas id="can"
+                                    width="130px" height="52px"
+                                    style="border-radius: 5px; border:1px solid silver;"></canvas></li>
+                            <li><input type="text" placeholder="请输入4位数字的验证码" style="width: 245px"><span>获取验证码</span>
+                            </li>
+                            <li><input id="user" type="text" placeholder="请输入用户名" onblur="checkUser()">
+                                <div id="user_prompt">用户名由英文字母和数字组成的4-16位字符，以字母开头</div>
+                            </li>
+                            <li><input id="pwd" type="password" placeholder="请输入新密码" onblur="checkPwd()">
+                                <div id="pwd_prompt">密码由英文字母和数字组成的4-10位字符</div>
+                            </li>
+                            <li><input id="repwd" type="password" placeholder="确认新密码" onblur="checkRepwd()">
+                                <div id="repwd_prompt"></div>
+                            </li>
+                            <li><button style="color: white;background-color:#fe5341;margin-bottom: 146px">立即注册</button>
+                            </li>
+                        </ul>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="contener">
+                    <div class="help">
+                        <div class="left"><img src="./img/code.png" alt="logo" width="160" height="160">
+                            <div>
+                                <img src="./img/icon.png" alt="icon">
+                                <p>全球酷玩试用导购平台酷·新奇·好玩·品质
+                                </p>
+                                <p>微信添加“JguoJguo”获取我们的服务。</p>
+                            </div>
+                        </div>
+                        <div class="right" id="ft-content">
+                            <div v-for="item,index in footDa">
+                                <h4>{{item.title}}</h4>
+                                <ul v-for="it in item.arr">
+                                    <li><a href="javascript:void(0);">{{it}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="Version">©2016 极果版权所有</p>
+                </div>
+            </footer>
+
+        </div>
+    </body>
+    <script src="./js/vue.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script>//底部帮助内容
+        var vm_one = new Vue({
+            el: "#ft-content",
+            data: {
+                footDa: [{
+                    title: "免费试用",
+                    arr: [
+                        "试用流程",
+                        "如何提高成功率"
+                    ]
+                },
+                {
+                    title: "友情链接",
+                    arr: [
+                        "智东西",
+                        "搜狐IT",
+                        "搜狐数码",
+                        "凤凰数码",
+                        "泡泡网",
+                        "ZUK社区",
+                        "极客公园",
+                        "果库"
+                    ]
+                },
+                {
+                    title: "",
+                    arr: [
+                        "WEIBUSI",
+                        "腾讯科技",
+                        "凤凰科技",
+                        "PConline",
+                        "3W咖啡",
+                        "亿觅emie",
+                        "易迅易启玩"
+                    ]
+                },
+                {
+                    title: "购买攻略",
+                    arr: [
+                        "美亚海淘教程",
+                        "日亚海淘教程",
+                        "海淘转运攻略",
+                        "kickstarter 众筹购买攻略",
+                        "indiegogo 众筹购买攻略"
+                    ]
+                },
+                {
+                    title: "厂商合作",
+                    arr: [
+                        "关于极果",
+                        "联系我们",
+                        "商务合作：BD@jiguo.com",
+                        "CEO邮箱：CEO@jiguo.com"
+                    ]
+                }
+                ]
+            }
+        })
+        //使用画布实现验证码；
+        var can = document.getElementById('can');
+        var cxt = can.getContext('2d');
+        var chartCode = '';
+        //记录验证码，方便对比；
+        var Mytext = '';
+        //验证码随机生成以及随机角度生成
+        var str = 'abcdefghijklmnopqrstuvwxyz1234567890';
+        var arr = str.split('');
+        function Mycode() {
+            var M = Math.floor(Math.random() * 36);
+            return arr[M];
+        }
+
+        var z = 0;
+        function Mydeg() {
+            var Mde = null;
+            if (z == 0) {
+                Mde = Math.random() * 0.2 + 0.1;
+                z = 1;
+            } else {
+                z = 0;
+                Mde = -(Math.random() * 0.2 + 0.1);
+            }
+            return Mde;
+        }
+
+        //随机生成坐标coordinate
+        function x() {
+            var coordinate = Math.floor(Math.random() * 131);
+            return coordinate;
+        }
+        function y() {
+            var coordinate = Math.floor(Math.random() * 53);
+            return coordinate;
+        }
+
+        //随机生成rgb颜色值
+        function Mycolor() {
+            var My = Math.floor(Math.random() * 256);
+            return My;
+        }
+        //随机生成半径
+        function r() {
+            var r = Math.floor(Math.random() * 3);
+            return r;
+        }
+
+        //实现画布点击随机替换
+        function ChangeNext() {
+            can.height = can.height;
+            //画数根干扰线；
+            function lines() {
+                cxt.save();
+                cxt.beginPath();
+                cxt.strokeStyle = "rgba(" + Mycolor() + "," + Mycolor() + "," + Mycolor() + ",0.5)";
+                cxt.moveTo(x(), y());
+                cxt.lineTo(x(), y());
+                cxt.stroke();
+                cxt.closePath();
+                cxt.restore();
+            }
+            for (var i = 0; i < 10; i++) {
+                lines();
+            }
+
+            //画数个干扰圆点
+            function Mycir() {
+                cxt.save();
+                cxt.beginPath();
+                cxt.fillStyle = "rgba(" + Mycolor() + "," + Mycolor() + "," + Mycolor() + ",0.5)";
+                cxt.arc(x(), y(), r(), 0, Math.PI * 2);
+                cxt.fill();
+                cxt.closePath();
+                cxt.restore();
+            }
+            for (var j = 0; j < 50; j++) {
+                Mycir();
+            }
+            chartCode = '';
+            //生成随机验证码
+            function MYcode(a) {
+                Mytext_write = Mycode();
+                Mytext += Mytext_write;
+                cxt.beginPath(); cxt.save();
+                cxt.translate(32 * a, 25);
+                cxt.rotate(Math.PI * Mydeg());
+                cxt.font = "300 40px 宋体";
+                cxt.textAlign = "center";
+                cxt.fillStyle = "rgb(" + Mycolor() + "," + Mycolor() + "," + Mycolor() + ")";
+                cxt.fillText(Mytext_write, 15, 10);
+                cxt.restore();
+                cxt.closePath();
+            }
+            for (let j = 0; j < 4; j++) {
+                MYcode(j);
+                chartCode += Mytext_write;
+            }
+        }
+        ChangeNext();
+        //正则验证注册
+        function f(elementId) {
+            // console.log(elementId);
+            return document.getElementById(elementId).value;
+        }
+        function divId(elementId) {
+            return document.getElementById(elementId);
+        }
+        //用户名验证
+        function checkUser() {
+            var user = f("user");
+            var userId = divId("user_prompt");
+            userId.innerHTML = "";
+            var reg = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+            if (reg.test(user) == false) {
+                userId.innerHTML = "用户名不正确";
+                return false;
+            }
+            return true;
+        }
+        //密码验证
+        function checkPwd() {
+            var pwd = f("pwd");
+            var pwdId = divId("pwd_prompt");
+            pwdId.innerHTML = "";
+            var reg = /^[a-zA-Z0-9]{4,10}$/;
+            if (reg.test(pwd) == false) {
+                pwdId.innerHTML = "密码不能含有非法字符，长度在4-10之间";
+                return false;
+            }
+            return true;
+        }
+        //再次输入密码验证
+        function checkRepwd() {
+            var repwd = f("repwd");
+            var pwd = f("pwd");
+            var repwdId = divId("repwd_prompt");
+            repwdId.innerHTML = "";
+            if (pwd != repwd) {
+                repwdId.innerHTML = "两次输入的密码不一致";
+                return false;
+            }
+            return true;
+        }
+        /*验证手机号码*/
+        function checkMobile() {
+            var mobile = f("mobile");
+            var mobileId = divId("mobile_prompt");
+            var regMobile = /^1[3578]\d{9}$/;
+            if (regMobile.test(mobile) == false) {
+                mobileId.innerHTML = "手机号码不正确，请重新输入";
+                return false;
+            }
+            mobileId.innerHTML = "";
+            return true;
+        }
+        $(can).on("click", function () {
+            ChangeNext();
+        })
+        $('li button').on('click', function (e) {
+            var e = e || window.event;
+            e.preventDefault();
+            e.returnValue = false;
+            var phones = $('input:first').val();
+            var paw = $('input:last').val();
+            for (let i = 0; i < $('input').length; i++) {
+                // console.log(0);
+                if ($('input').eq(i).val() == '') {
+                    alert("请注意用户信息填写完整！");
+                    return null;
+                }
+            }
+            if ($('input').eq(4).val() != $('input:last').val()) {
+                alert("两次输入的密码不一致！");
+                $('input').eq(4).val('');
+                $('input:last').val('');
+                return;
+            }
+            if ($('input').eq(1).val() != chartCode) {
+                alert("图片验证码不能为空或输入错误，请重新输入！")
+                return;
+            }
+            $.ajax({
+                url: "https://www.apiopen.top/createUser",
+                data: {
+                    key: "00d91e8e0cca2b76f515926a36db68f5",
+                    phone: phones,
+                    passwd: paw
+                },
+                type: "post",
+                success(res) {
+                    console.log(res);
+                    window.localStorage.setItem('loginStatus', false);
+                    window.location.href = "index.html";
+                },
+                error(err) {
+                    console.log(err);
+                }
+            });
+            ChangeNext();
+        })
+        //导航
+        $("header .contener .left .t_list li").on("click",function(){
+            switch($(this).index()){
+                case 0:window.location.href="index.html";break;
+                case 1:window.location.href="coldplay.html";break;
+                case 2:window.location.href="Shopping.html";break;
+                case 3:window.location.href="FreeTrial.html";break;
+                case 4:window.location.href="Presentation.html";break;
+            }
+        })
+        $("#ft-content div:last-of-type h4").on("click",function(){window.location.href="gratis.html"})
+
+        /* //验证登录关闭
+        $("header .clkLogin").on("click", function (e) {
+            var e = e || window.Event;
+            if ((e.target.className).indexOf("loginret") != -1) {
+                window.location.href = "login.html";
+            } else {
+                window.localStorage.setItem('loginStatus', true);
+                $("header .clkLogin").removeClass("logingray").addClass("loginret").text('登录');
+            }
+        })
+        status();
+        window.addEventListener("storage", function () { status(); }, false)
+
+        function status() {
+            if (window.localStorage.getItem("loginStatus") == "true") {
+                $("header .clkLogin").removeClass("logingray").addClass("loginret").text('登录');
+            } else {
+                $("header .clkLogin").removeClass("loginret").addClass("logingray").text('退出');
+            }
+        } */
+    </script>
+</body>
+
+</html>

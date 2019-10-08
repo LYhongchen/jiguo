@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/headW&&footerW.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="box">
+        <header>
+            <div class="contener">
+                <iframe id="iframe_id" src="./head/headIndex.html" frameborder="0"
+                    class="header-content contener"></iframe>
+                <ul class="clkNav">
+                    <li>首页</li>
+                    <li>酷玩</li>
+                    <li>导购</li>
+                    <li>试用</li>
+                    <li>报告</li>
+                </ul>
+                <div class="clkLogin"></div>
+            </div>
+        </header>
+        <div id="app">
+            <div class="contener">
+                <div class="banner_bt">
+                    <div>
+                        <h1>幻想小贝HiFi2.1音响</h1>
+                        <div>
+                            <p>20台</p>
+                            <p>￥599</p>
+                            <p>126人申请</p>
+                        </div>
+                        <p class="text">申请事件剩余：13天5小时37分钟</p>
+                        <button>立即申请</button>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom">
+                <div class="hotProbation">
+                    <div class="contener">
+                        <div class="title">
+                            <h1>热门试用</h1>
+                        </div>
+                        <div class="cont">
+                            <div>
+                                <div v-for='itm in data.hotProbation'>
+                                    <div class="mntopimg"><img :src="itm.url" alt=""></div>
+                                    <h2 class="title">{{itm.title}}</h2>
+                                    <div class="numPlatform"><a href="javascript:void(0);"
+                                            :class="itm.color">{{itm.num}}</a><a href="javascript:void(0);"
+                                            :class="itm.color">{{itm.platform}}台</a></div>
+                                    <p class="apply"><span class="red">{{itm.apply}}</span>申请</p>
+                                    <p :class="itm.color">{{itm.SurplusTime}}</p>
+                                    <div :class='itm.statusColor+" icon"'>{{itm.status}}</div>
+                                    <div class="hotProbationAnimt"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btnLeft"><img src="./img/img/prev.png" alt=""></div>
+                        <div class="btnRight"><img src="./img/img/next.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="presentationSelected">
+                    <div class="contener">
+                        <div class="title">
+                            <h1>报告精选</h1>
+                            <p>查看更多</p>
+                        </div>
+                        <div class="cont">
+                            <div v-for='ite in data.presentationSelected'>
+                                <div class="mntopimg"><img :src="ite.url" alt=""></div>
+                                <p class="title">{{ite.title}}</p>
+                                <p class="content">{{ite.content}}</p>
+                                <div class="priceFollow"><span>{{ite.author}}</span>
+                                    <div><span>{{ite.follow}}</span><span>{{ite.message}}</span></div>
+                                </div>
+                                <div class="presentationSelectedAnimat"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ShoppingSelected">
+                    <div class="contener">
+                        <div class="title">
+                            <h1>导购精选</h1>
+                            <p>查看更多</p>
+                        </div>
+                        <div class="cont">
+                            <div v-for='val in data.ShoppingSelected'>
+                                <div class="mntopimg"><img :src="val.url" alt=""></div>
+                                <div class="bottom">
+                                    <p class="title">{{val.title}}</p>
+                                    <div class="priceFollow">
+                                        <div><span>{{val.follow}}</span><span>{{val.message}}</span></div>
+                                    </div>
+                                </div>
+                                <div class="ShoppingSelectedAnimat"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="findColdplay">
+                    <div class="contener">
+                        <div class="title">
+                            <h1>发现酷玩</h1>
+                            <p>查看更多</p>
+                        </div>
+                        <div class="cont">
+                            <div v-for='value in data.findColdplay'>
+                                <div class="mntopimg"><img :src="value.url" alt=""></div>
+                                <p class="title">{{value.title}}</p>
+                                <p class="content">{{value.content}}</p>
+                                <div class="priceFollow"><span>{{value.price}}</span>
+                                    <div><span>{{value.follow}}</span><span>{{value.message}}</span></div>
+                                </div>
+                                <div class="findColdplayAnimt"></div>
+                            </div>
+                            <div v-for='it,index in data.findColdplay' v-if="index<4" hidden>
+                                <div class="mntopimg"><img :src="it.url" alt=""></div>
+                                <p class="title">{{it.title}}</p>
+                                <p class="content">{{it.content}}</p>
+                                <div class="priceFollow"><span>{{it.price}}</span>
+                                    <div><span>{{it.follow}}</span><span>{{it.message}}</span></div>
+                                </div>
+                                <div class="findColdplayAnimt"></div>
+                            </div>
+                            <div class="more"><a href="javascript:void(0);">点击加载更多</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="contener">
+                <iframe src="footer.html" frameborder="0" class="footer-content contener"></iframe>
+                <div class="clkgratis"></div>
+            </div>
+        </footer>
+    </div>
+    <!-- <div id="share">
+        <div class="bshare-custom icon-medium"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到朋友网"
+                class="bshare-qqxiaoyou"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="更多平台"
+                class="bshare-more bshare-more-icon more-style-addthis"></a><span
+                class="BSHARE_COUNT bshare-share-count" style="display: none;float: none;">0</span></div>
+        <script type="text/javascript" charset="utf-8"
+            src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+        <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+    </div> -->
+    <div id="goTop"></div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/publicMethods.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/headW&&footerW.css">
+    <link rel="stylesheet" href="./css/FreeTrial.css">
+</head>
+
+<body>
+    <div id="box">
+        <header>
+            <div class="contener">
+                <iframe id="iframe_id" src="./head/headFreeTrial.html" frameborder="0"
+                    class="header-content contener"></iframe>
+                <ul class="clkNav">
+                    <li>首页</li>
+                    <li>酷玩</li>
+                    <li>导购</li>
+                    <li>试用</li>
+                    <li>报告</li>
+                </ul>
+                <div class="clkLogin"></div>
+            </div>
+        </header>
+        <div id="app">
+            <div class="contener">
+                <div class="top">
+                    <h1>大众试用</h1>
+                    <ul class="nav">
+                        <li v-for='val,index in dat'>
+                            <router-link v-if='index==0' class="active" :to="{path:'/'+val.name}">{{val.title}}
+                            </router-link>
+                            <router-link v-else :to="{path:'/'+val.name}">{{val.title}}</router-link>
+                        </li>
+                    </ul>
+                    <ul class="bomNav"></ul>
+                </div>
+            </div>
+            <router-view></router-view>
+        </div>
+        <footer>
+            <div class="contener">
+                <iframe src="footer.html" frameborder="0" class="footer-content contener"></iframe>
+                <div class="clkgratis"></div>
+            </div>
+        </footer>
+    </div>
+    <template id="twoNav">
+        <div class="bottom">
+            <div class="nav">
+                <div class="contener">
+                    <router-link :to='"/"+id+"/all"' class="active">全部</router-link>
+                    <router-link :to='"/"+id+"/apply"'>申请中</router-link>
+                    <router-link :to='"/"+id+"/trial"'>试用中</router-link>
+                    <router-link :to='"/"+id+"/end"'>结束</router-link>
+                </div>
+            </div>
+            <div class="contener">
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+    <template id="showCnt">
+        <div id="mostNew">
+            <div v-for='itm in data'>
+                <div class="mntopimg"><img :src="itm.url" alt=""></div>
+                <h2 class="title">{{itm.title}}</h2>
+                <div class="numPlatform"><a href="javascript:void(0);" :class="itm.color">{{itm.num}}</a><a
+                        href="javascript:void(0);" :class="itm.color">{{itm.platform}}台</a></div>
+                <p class="apply"><span class="red">{{itm.apply}}</span>申请</p>
+                <p :class="itm.color">{{itm.SurplusTime}}</p>
+                <div :class='itm.statusColor+" icon"'>{{itm.status}}</div>
+                <div class="Animt"></div>
+            </div>
+            <div v-for='itm,index in data' v-if="index<4" hidden>
+                <div class="mntopimg"><img :src="itm.url" alt=""></div>
+                <h2 class="title">{{itm.title}}</h2>
+                <div class="numPlatform"><a href="javascript:void(0);" :class="itm.color">{{itm.num}}</a><a
+                        href="javascript:void(0);" :class="itm.color">{{itm.platform}}台</a></div>
+                <p class="apply"><span class="red">{{itm.apply}}</span>申请</p>
+                <p :class="itm.color">{{itm.SurplusTime}}</p>
+                <div :class='itm.statusColor+" icon"'>{{itm.status}}</div>
+                <div class="Animt"></div>
+            </div>
+            <div class="more tru" v-if="fly"><a href="javascript:void(0);">点击加载更多</a></div>
+            <div class="more fls" v-else><a href="javascript:void(0);">没有更多啦 ~</a></div>
+        </div>
+    </template>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="./js/vue-router.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/publicMethods.js"></script>
+<script src="./js/FreeTrial.js"></script>
+
+</html>

@@ -1,0 +1,89 @@
+/* 头部导航 */
+header{overflow: hidden;}
+header>.contener{position: relative;}
+header>.contener>.clkNav{width:450px;height:75px;position: absolute;top: 0;left: 175px;display: flex;z-index: 999;}
+header>.contener>.clkNav>li{width: 25%;font-size: 20px;font-weight: 100;background-color: white;line-height: 90px;display: none;cursor: pointer;}
+header>.contener>.clkNav>li:hover{display: block;color: red;}
+
+/* 中间部分 */
+#app>.top{background: url("../img/img/original.jpg") no-repeat center top;padding-top: 50px;text-align: right;color: white; }
+#app>.top>.contener>.banner_bt{height: 250px;}
+#app>.top>.contener>.banner_bt>h1{font-size: 30px;line-height: 30px;margin-bottom: 25px;}
+#app>.top>.contener>.banner_bt>div{height: 35px;display: flex;flex-direction: row-reverse;}
+#app>.top>.contener>.banner_bt>div>p{font-weight:600;margin-left: 15px;line-height:16px;background-color: rgba(255, 255, 255, .3);padding: 10px;border-radius: 4px;text-align: center;}
+#app>.top>.contener>.banner_bt>p{font-size: 18px;line-height: 18px;margin:25px auto 20px;}
+#app>.top>.contener>.banner_bt>button{font-size: 24px;line-height:30px;padding: 10px 75px 8px;background-color: rgb(253,84,63);outline: none;border: none;border-radius: 4px;}
+#app>.bottom>.procedure{height: 105px;padding: 20px;background-color: #ccc;}
+#app>.bottom>.procedure>.contener{height:65px;display: flex;align-items: center;}
+#app>.bottom>.procedure>.contener>.left{display: flex;align-items: center;}
+#app>.bottom>.procedure>.contener>.left>i{display:block;width: 8px;height: 65px;margin-right: 10px;background-color: rgb(253,84,63)}
+#app>.bottom>.procedure>.contener>.left>span{width:40px;font-size: 20px;line-height: 32px;}
+#app>.bottom>.procedure>.contener>.right{display: flex;width: 100%;height: 65px;justify-content: space-around;align-items: center;}
+#app>.bottom>.procedure>.contener>.right>div{text-align: center;height: 65px;}
+#app>.bottom>.procedure>.contener>.right>div>img{margin-bottom: 5px;}
+#app>.bottom>.procedure>.contener>.right>div:hover p{border-bottom: 2px solid red;}
+#app>.bottom>.introductionPass>.contener{display: flex;background-color: white;justify-content: space-between;}
+#app>.bottom>.introductionPass>.contener>.introduction{width: 700px;margin-top: 45px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>h1{height: 30px;line-height: 30px;position: relative;padding-left: 18px}
+#app>.bottom>.introductionPass>.contener>.introduction>div>h1>span{position:absolute;left:0;display: inline-block;width: 8px;height: 100%;background-color: red;}
+#app>.bottom>.introductionPass>.contener>.introduction>div{font-size: 16px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.describe{line-height: 26px;margin-top: 20px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.cuation{line-height: 16px;margin: 30px 0;color: blue;}
+#app>.bottom>.introductionPass>.contener>.introduction>div:first-of-type>.titlered{margin: 25px 0 45px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div:first-of-type>.titlered>h2{font-size: 18px;line-height:18px;font-weight: 900;color: red;}
+#app>.bottom>.introductionPass>.contener>.introduction>div:first-of-type>.titlered>p{font-size: 16px;line-height: 26px;margin:30px 0 30px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.titleblue{font-size: 16px;margin-bottom: 30px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.titleblue>h2{color: blue;font-weight: 600;line-height: 16px;margin-bottom: 35px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.titleblue>p{line-height: 26px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.titleblue>img{margin-top: 25px;}
+#app>.bottom>.introductionPass>.contener>.introduction>div:last-of-type>.titlered>h2{font-weight: 600;line-height: 26px;color: red;}
+#app>.bottom>.introductionPass>.contener>.introduction>div>.titlered>.deputyContent{line-height: 26px;margin-bottom: 25px;}
+#app>.bottom>.introductionPass>.contener>.pass{margin-top: 25px;width: 270px;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li>h1{line-height: 26px;position: relative;padding-left: 30px;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li>h1>span{width: 8px;height: 100%;position: absolute;left:0;background-color: rgb(253,84,63);}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:first-of-type>p:first-of-type{font-size: 30px;line-height: 30px;margin: 35px 0 30px;color: rgb(253,84,63);}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:first-of-type>button{width: 100%;height: 50px;border: none;outline: none;border-radius: 4px;color: white;background-color:rgb(253,84,63); }
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:first-of-type>p:last-of-type{color: #999;text-align: center;font-size: 14px;line-height: 45px;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:nth-of-type(2)>img{margin: 20px 0 6px;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:nth-of-type(2)>p{line-height: 22px;color: #999;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:nth-of-type(2)>h2{font-weight: 900;line-height: 26px;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:nth-of-type(2){margin-bottom: 60px;}
+#app>.bottom>.introductionPass>.contener>.pass>ul>li:last-of-type>img{margin-top: 20px;}
+/* 更多内容框 */
+#app>.bottom>.hotProbation{margin: 50px 0 25px;}
+#app>.bottom>.hotProbation>.contener>.head{display: flex;align-items: center;justify-content: space-between;}
+#app>.bottom>.hotProbation>.contener>.head>h1{font-size: 22px;line-height: 22px;font-weight: 900;}
+#app>.bottom>.hotProbation>.contener>.head>p>a{display: block;color: red;padding-right: 20px;background: url(../img/img/readMore.png) no-repeat center right;}
+
+#app>.bottom>.hotProbation>.contener>#mostNew{padding-top:1px;display: flex;flex-wrap: wrap;justify-content: space-between;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div{text-align: center;width: 220px;height: 285px;margin-top: 25px;border-radius: 8px;cursor: pointer;background-color: white;overflow: hidden;border: 1px solid #ccc;position: relative;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.mntopimg{height: 130px;position: relative;overflow: hidden;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.mntopimg>img{max-width: none;height: 100%;position: absolute;top: 0px;left: 50%;transform: translateX(-50%);}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.title{line-height: 26px;font-weight: 600;margin: 8px 10px 3px;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.numPlatform{height: 25px;line-height: 25px;display: flex;justify-content: center;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.numPlatform>a{display: block;width: 50px;height: 100%;border: 1px solid #999;border-radius: 4px;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.numPlatform>a:first-of-type{margin-right: 15px;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.apply{margin-top:8px}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.icon{position: absolute;right: 0;top:0;padding: 5px 10px;border-bottom-left-radius: 8px;font-size: 14px;line-height: 14px;}
+/* 颜色 */
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.redWhite{background-color: rgb(255, 87, 50);color: white;}
+#app>.bottom>.hotProbation>.contener>#mostNew>div>.yellows{background-color: rgb(251, 244, 202);color: #BDAC74;}
+.gray{color: gray;}
+.green{color: green;}
+.red{color: rgb(255, 87, 50);}
+
+header>.contener>.clkLogin{position: absolute;width: 50px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    top:21px;right: 0;
+    background-color: white;
+    cursor: pointer;
+}
+header>.contener>.loginret{border: 1px solid red;color: red;}
+header>.contener>.logingray{border: 1px solid #999;color: #999;}
+
+footer>.contener{position: relative;}
+footer>.contener>.clkgratis{position: absolute;right: 112px;top: 44px;width: 80px;height: 20px;z-index: 999;cursor: pointer;}

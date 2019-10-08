@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/headW&&footerW.css">
+    <link rel="stylesheet" href="./css/Presentation.css">
+</head>
+
+<body>
+    <div id="box">
+        <header>
+            <div class="contener">
+                <iframe id="iframe_id" src="./head/headPresentation.html" frameborder="0"
+                    class="header-content contener"></iframe>
+                <ul class="clkNav">
+                    <li>首页</li>
+                    <li>酷玩</li>
+                    <li>导购</li>
+                    <li>试用</li>
+                    <li>报告</li>
+                </ul><div class="clkLogin"></div>
+            </div>
+        </header>
+        <div id="app">
+            <div class="contener">
+                <div class="top">
+                    <h1>体验报告</h1>
+                    <ul class="nav">
+                        <li v-for='val,index in dat'>
+                            <router-link v-if='index==0' class="active" :to="{path:'/'+val.name}">{{val.title}}
+                            </router-link>
+                            <router-link v-else :to="{path:'/'+val.name}">{{val.title}}</router-link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="contener">
+                    <div class="left">
+                        <router-view></router-view>
+                    </div>
+                    <div class="right">
+                        <ul>
+                            <li>
+                                <h1><span></span>吉果体验师</h1>
+                                <img src="./img/tiyanImg.jpg" alt="">
+                                <h2>福利</h2>
+                                <p>第一时间体验新品，大众试用优先通过，还有定向邀请试用，新品玩到手软</p>
+                                <h2>要求</h2>
+                                <p>是某个领域的大神级玩家，在社交网络或圈子里有大影响力，善写作会拍摄。</p>
+                                <h2>申请</h2>
+                                <p>1. 关注极果公众号：jguojguo
+                                    <br />（或扫描下方二维码）
+                                    <br /> 2. 在公众号内回复：体验师
+                                    关注我们</p>
+                            </li>
+                            <li>
+                                <h1><span></span>关注我们</h1>
+                                <img src="./img/myCode.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="contener">
+                <iframe src="footer.html" frameborder="0" class="footer-content contener"></iframe>
+                <div class="clkgratis"></div>
+            </div>
+        </footer>
+    </div>
+    <template id="showCnt">
+        <div id="mostNew">
+            <div v-for='itm in data'>
+                <div class="mntopimg">
+                    <img :src="itm.url" alt="">
+                    <div class="priceFollow">
+                        <p class="title">{{itm.title}}</p>
+                        <div>
+                            <p><span>{{itm.author}}</span>&nbsp;&nbsp;{{itm.time}}</p>
+                            <div><span>{{itm.follow}}</span><span>{{itm.message}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <p v-if="fly">{{itm.morePresentation}}</p>
+            </div>
+            <div v-for='it,index in data' v-if="index<1" hidden>
+                <div class="mntopimg">
+                    <img :src="it.url" alt="">
+                    <div class="priceFollow">
+                        <p class="title">{{it.title}}</p>
+                        <div>
+                            <p><span>{{it.author}}</span>&nbsp;&nbsp;{{it.time}}</p>
+                            <div><span>{{it.follow}}</span><span>{{it.message}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <p v-if="fly">{{it.morePresentation}}</p>
+            </div>
+            <div class="more"><a href="javascript:void(0);">点击加载更多</a></div>
+        </div>
+    </template>
+    <template id="categoryCnt">
+        <div id="category">
+            <div v-for='value in dat'>
+                <h5><i></i>{{value.title}}</h5>
+                <ul class="chartFont">
+                    <li v-for='val in value.chartFont'>
+                        <img :src="val.url" alt="">
+                        <p>{{val.content}}</p>
+                    </li>
+                </ul>
+                <ul class="fnt">
+                    <li v-for='item in value.da'>
+                        <p v-for='it in item'>{{it}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="./js/vue-router.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/publicMethods.js"></script>
+<script src="./js/Presentation.js"></script>
+
+</html>

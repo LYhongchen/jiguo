@@ -1,0 +1,58 @@
+/* 头部导航 */
+header{overflow: hidden;}
+header>.contener{position: relative;}
+header>.contener>.clkNav{width:450px;height:75px;position: absolute;top: 0;left: 175px;display: flex;z-index: 999;}
+header>.contener>.clkNav>li{width: 25%;font-size: 20px;font-weight: 100;background-color: white;line-height: 90px;display: none;cursor: pointer;}
+header>.contener>.clkNav>li:hover{display: block;color: red;}
+
+#app{background-color: #eee;padding-bottom: 25px;}
+#app>.contener>p{height: 50px;line-height:50px;color: #999;}
+#app>.contener>div{display: flex;justify-content: space-between;}
+#app>.contener>div>div{background-color: white;border-radius: 4px;}
+#app>.contener>div>.left{width: 700px;}
+#app>.contener>div>.left>.title{padding: 30px 25px;border-bottom: 1px solid #999;}
+#app>.contener>div>.left>.title>h1{font-size: 24px;line-height: 24px;margin-bottom: 25px;}
+#app>.contener>div>.left>.title>div{display: flex;height: 20px;justify-content: space-between;align-items: center;color: #999}
+#app>.contener>div>.left>.title>div>p{padding-left: 30px;height: 20px;background: url(../img/img/biao.png) no-repeat 8px center;}
+#app>.contener>div>.left>.content{padding:18px 35px 35px 25px;}
+#app>.contener>div>.left>.content>div{word-wrap: break-word;text-align: center;}
+#app>.contener>div>.left>.content>div>p{text-align: left;font-size: 12px;line-height: 24px;margin-bottom: 22px;}
+#app>.contener>div>.left>.content>div>h2{font-weight: 900;}
+#app>.contener>div>.left>.content>div>.chart_title{line-height: 24px;margin-bottom: 22px;}
+#app>.contener>div>.left>.content>div>img{margin-bottom: 22px;}
+#app>.contener>div>.left>.content>div>.author{margin-bottom: 0;}
+#app>.contener>div>.left>.content>.end{margin-top: 54px;}
+#app>.contener>div>.left>.content>.end>p{margin-bottom: 0;}
+#app>.contener>div>.left>.content>.end>p>a{color: #999;}
+#app>.contener>div>.left>.content>.end>p>a:hover{color: red;}
+
+#app>.contener>div>.right{width: 270px;height: 113px;box-shadow: 0px 1px 3px #ccc;display: flex;color: #999;}
+#app>.contener>div>.right>div{width: 50%;text-align: center;padding: 29px 0;}
+#app>.contener>div>.right>div:first-of-type{border-right: 1px solid #ddd;}
+#app>.contener>div>.right>div:last-of-type{padding-top: 31px;position: relative;}
+#app>.contener>div>.right>div:last-of-type:hover #share{display: block;}
+#app>.contener>div>.right>div>img{margin-bottom: 15px;cursor: pointer;}
+#app>.contener>div>.right>div>p{line-height: 14px;}
+#app>.contener>div>.right>div:last-of-type>p{line-height: 21px;}
+#app>.contener>div>.right>div:first-of-type>img:hover{content: url(../img/img/xinRedh.png);}
+#app>.contener>div>.right>div:first-of-type>img:hover + p{color: red;}
+#app>.contener>div>.right>div:last-of-type>img:hover{content: url(../img/img/shareh_yj1.png);}
+#app>.contener>div>.right>div:last-of-type>img:hover + p{color: red;}
+
+header>.contener>.clkLogin{position: absolute;width: 50px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    top:21px;right: 0;
+    background-color: white;
+    cursor: pointer;
+}
+header>.contener>.loginret{border: 1px solid red;color: red;}
+header>.contener>.logingray{border: 1px solid #999;color: #999;}
+
+footer>.contener{position: relative;}
+footer>.contener>.clkgratis{position: absolute;right: 112px;top: 44px;width: 80px;height: 20px;z-index: 999;cursor: pointer;}
+
+#share{position: absolute;top: 88px;right: 4px;display: none;}

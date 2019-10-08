@@ -1,0 +1,14 @@
+/* 公共样式 */
+.contener{width: 1005px;margin: 0 auto;height: 100%;}
+header{height: 75px;}
+/* 头部样式 */
+header>.contener{display: flex;justify-content: space-between;}
+header>.contener>div{height: 100%;width: 100%;line-height: 75px;}
+header>.contener>.left{display: flex;}
+header>.contener>.right{width: 300px;text-align: right;}
+header>.contener>.left>.logo{width: 135px;margin-right: 65px;}
+header>.contener>.left>ul{display: flex;}
+header>.contener>.left>ul>li{margin-top:8px;margin-right: 50px;font-size: 20px;cursor: pointer;}
+header>.contener>.left>ul>li:nth-of-type(5){color: red;}
+header>.contener>.right>a{width: 50px;height: 30px;display: inline-block;border: 1px solid red;border-radius: 4px;text-align: center;line-height: 30px;color: red;margin-left: 35px;font-size: 16px;}
+
